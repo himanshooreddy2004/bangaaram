@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Precious Bangaaram 🌸</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background: radial-gradient(circle at top,#1e1b4b,#020617);
+color:white;
+overflow-x:hidden;
+}
+
+/* CENTER CONTAINER */
+
+.center{
+position:relative;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+z-index:2;
+}
+
+/* TITLE */
+
+h1{
+font-size:52px;
+color:#ff9acb;
+margin-bottom:20px;
+text-shadow:0 0 20px #ff9acb;
+}
+
+p{
+font-size:20px;
+max-width:600px;
+color:#e6e6e6;
+line-height:1.6;
+}
+
+/* BUTTON */
+
+button{
+margin-top:35px;
+padding:15px 40px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#ff69b4;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#ff4fa1;
+transform:scale(1.07);
+}
+
+/* STARS */
+
+.star{
+position:fixed;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+z-index:0;
+}
+
+@keyframes twinkle{
+from{opacity:0.3;}
+to{opacity:1;}
+}
+
+/* FALLING FLOWERS */
+
+.flower{
+position:fixed;
+top:-50px;
+font-size:26px;
+animation:fall linear infinite;
+pointer-events:none;
+z-index:0;
+}
+
+@keyframes fall{
+0%{transform:translateY(-100px) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* BLOOM FLOWERS */
+
+.bloom{
+position:fixed;
+font-size:34px;
+animation:bloom 1.2s forwards;
+pointer-events:none;
+z-index:1;
+}
+
+@keyframes bloom{
+0%{transform:scale(0);opacity:0;}
+100%{transform:scale(1.5);opacity:1;}
+}
+
+/* GARDEN PAGE */
+
+#garden{
+display:none;
+min-height:100vh;
+overflow-y:auto;
+padding:120px 20px;
+text-align:center;
+position:relative;
+z-index:2;
+}
+
+/* MESSAGE SECTIONS */
+
+.section{
+max-width:700px;
+margin:70px auto;
+font-size:22px;
+line-height:1.8;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+.section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.highlight{
+font-size:32px;
+color:#ff9acb;
+margin:40px auto;
+text-align:center;
+display:block;
+width:100%;
+text-shadow:0 0 10px #ff9acb;
+}
+.sceneryPage{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background-image:url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1500&q=80");
+background-size:cover;
+background-position:center;
+padding:40px;
+position:relative;
+z-index:5;
+}
+
+.sceneContent{
+background:rgba(0,0,0,0.7);
+padding:50px;
+border-radius:20px;
+max-width:700px;
+text-align:center;
+position:relative;
+z-index:10;
+}
+.activities{
+display:flex;
+flex-direction:column;
+gap:15px;
+max-width:500px;
+margin:40px auto;
+}
+
+.activities label{
+background:rgba(255,255,255,0.08);
+padding:14px 20px;
+border-radius:12px;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+display:flex;
+align-items:center;
+}
+
+.activities label:hover{
+background:rgba(255,255,255,0.18);
+}
+
+.activities input{
+margin-right:12px;
+transform:scale(1.3);
+accent-color:#ff9acb;
+}
+#relaxPage{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background-image:url("https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+z-index:999;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.relaxCard{
+background:rgba(0,0,0,0.6);
+padding:50px;
+border-radius:20px;
+max-width:700px;
+margin:auto;
+}
+#relaxPage::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+z-index:0;
+}
+
+.relaxCard{
+position:relative;
+z-index:1;
+}
+.sunflowerPage{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+
+background-image:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.sunContent{
+background:rgba(0,0,0,0.55);
+padding:60px;
+border-radius:20px;
+max-width:700px;
+}
+
+.sunContent h1{
+font-size:48px;
+color:#ffdf6b;
+margin-bottom:25px;
+}
+
+.sunContent h2{
+margin-top:25px;
+color:#ffd24d;
+}
+
+.sunContent p{
+font-size:20px;
+margin-top:15px;
+line-height:1.6;
+}
+
+.endLine{
+margin-top:40px;
+font-size:24px;
+color:#ff9acb;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO PAGE -->
+
+<div id="intro" class="center">
+
+<h1>For My Precious Bangaaram 🌸</h1>
+
+<p>
+Whenever life feels heavy step into this little garden  
+and remember how special you are to everyone around you.
+</p>
+
+<button onclick="enterGarden()">Enter the Garden 🌸</button>
+
+</div>
+
+<!-- STARS -->
+
+<div class="star" style="top:10%; left:20%;"></div>
+<div class="star" style="top:30%; left:40%;"></div>
+<div class="star" style="top:50%; left:10%;"></div>
+<div class="star" style="top:70%; left:60%;"></div>
+<div class="star" style="top:20%; left:80%;"></div>
+<div class="star" style="top:80%; left:30%;"></div>
+
+<!-- FALLING FLOWERS -->
+
+<div class="flower" style="left:10%;animation-duration:7s;">🌸</div>
+<div class="flower" style="left:25%;animation-duration:9s;">🌷</div>
+<div class="flower" style="left:40%;animation-duration:6s;">🌹</div>
+<div class="flower" style="left:55%;animation-duration:8s;">🌼</div>
+<div class="flower" style="left:70%;animation-duration:7s;">🌺</div>
+<div class="flower" style="left:85%;animation-duration:10s;">🌸</div>
+
+<!-- GARDEN PAGE -->
+
+<div id="garden">
+
+<h1>You Are Precious bujji 🌸</h1>
+
+<div class="section">
+<p>
+To your parents you are their cute little princess,  
+their pride and happiness
+</p>
+</div>
+
+<div class="section">
+<p>
+To your friends you are the kind heart  
+who listens,understands and supports. 
+They are really lucky to have you
+in their life.
+</p>
+</div>
+
+<div class="section">
+<p>
+To your Elder cousins you are the cute lil mischievous sister  
+who fills every moment with laughter,
+To your younger sibling you are more then 
+just a sister 
+Someone whom she looks upto.
+Ik being the eldest is not easy but you carry that role with so much strength and love.
+Always proud of you princess
+</p>
+</div>
+
+<div class="section">
+
+<div class="highlight">
+And to me...
+</div>
+
+<p>
+You are my peace, my happiness  
+and the most precious person in my life
+Seeing you smile is one of the best feelings in the world 
+</p>
+
+<div class="highlight">
+My Bangaaram ❤️
+My Everything 😊.
+Even on the days when you feel lost and confused
+remember this you matter more then you realize princess
+.You are precious to all the close ones around you....
+</div>
+
+</div>
+
+<!-- NEW SECTION ADDED (STEP 1) -->
+
+<div class="section">
+
+<div class="highlight">
+After Listening to Manasvi's voice Note 
+</div>
+
+<p>
+When you sent me Manasvi's voice note
+I listened to it carefully 
+</p>
+
+<p>
+It helped me understand a little more about
+what you might be going through inside
+</p>
+
+<p>
+Ik i already texted some of this to you 
+on wstapp
+after listening to the voice note you 
+forwarded.
+But still i wanted to teext it here 
+
+Not because you didnt see it before 
+but because somethings deserve to be in a place 
+you can come back again when u feel like it.
+</p>
+
+<p>
+Whenever life feels heavy or whenever you feel lost or 
+overwhelmed
+you can open this again and read it bujji❤️
+</p>
+
+<p>
+I understand at times in life how difficult it is and 
+being the eldest is not always easy.
+Sometimes it means you are the one who learns things first,
+faces things first and carries responsibilities before anyone else.
+</p>
+
+<p>
+You try to make your parents proud,
+you try to set an example for your younger siblings
+and you try to handle everything alone
+</p>
+
+<p>
+Sometimes when things don't go the way you hoped
+it can start feeling like you are not doing enough
+or that you should have done something better.
+</p>
+
+<p>
+Because you care so deeply about people
+even small things in friendships or relationships
+can hurt more than others realise. 
+
+
+Ik how it feels bujji being sensitive is not at all wrong 
+it simply means you care more deeply than most people do 
+</p>
+
+<p>
+Ik you cannot say everything to your parents because 
+you don't want to worry/burden them 
+and you cannot share with your sister as well being the eldest
+from childhood you have been someone whom your sister looks upto so
+showing this side of you to younger ones isnt easy 
+and with friends opening up isn't easy 
+.Sometimes sharing your feelings can feel scary
+</p>
+
+<p>
+In those moments it can feel like
+you are carrying everything alone,it feels so heavy 
+that u feel restless. 
+</p>
+
+<p>
+But the strength you show every day,
+the care you give to people around you
+and the way you keep moving forward.Even though
+you have so much on your mind you keep fulfilling your role 
+and complete your daily routines ,tasks,responsibilities.
+That is never easy princess,trust me and 
+these say so much about the kind of person you are.
+</p>
+
+<p>
+Even if people don't always notice it or see it 
+you will always be someone they can look upto 
+and count me in that list too.
+I am always proud of you my baby girl
+</p>
+
+<p>
+But even the strongest hearts deserve a place to rest. 
+Sometimes its okay to cry ,
+to feel emotional ,
+to get angry or
+to let it out completely
+.Carrying it alone for too long will only make it heavier
+you dont have to carry everything alone bujji 
+there are people who truly care and worry about you and  
+want to see you happy and smiling 
+your parents, 
+your friends,
+your cousins 
+and me
+</p>
+<button onclick="openPage4()">Something I Want To Tell You</button>
+
+</div>
+
+
+<div id="page4" class="section" style="display:none;">
+
+<div class="highlight">
+
+</div>
+
+<p>
+Ik sometimes I don't know the exact words to say
+in those moments.
+</p>
+
+<p>
+And instead of searching for the perfect sentence 
+I feel that being next you,listening to you,
+holding you,
+and simply staying next to you matters much more 
+</p>
+
+
+
+<p>
+I might not always be someone who frames the 
+most perfect comforting words princess.
+But i promise you something.
+I willl always listen to you,
+make you feel heard,
+make you feel seen,and try my best to 
+understand you with patience
+
+And if sometimes you notice that i take 
+a lil time while replying or typing
+it's only because i first try to understand 
+what you are feeling.
+I take time to think carefully about words that 
+might help you or make you feel a lil lighter
+</p>
+
+<p>
+And if someday you don't even feel like talking
+and you just want someone next you 
+</p>
+
+<div class="highlight">
+I am always one call away
+</div>
+
+<p>
+Day or night,
+no matter what time it is,
+I will always be there for you.
+</p>
+<button onclick="openHonestPage()">Honest Thing From Me</button>
+</div>
+
+<!-- NEW PAGE -->
+
+<div id="honestPage" class="sceneryPage" style="display:none;">
+
+<div class="sceneContent">
+
+<h1>One Honest Thing From Me</h1>
+
+<p>
+Sometimes when you're going through something or when you are hurting,
+my mind also goes blank.
+</p>
+
+<p>
+Not because I don't care,
+but because I care sooooo much that I start thinking too much about what I should say so that it
+doesn't hurt you more and I worry whether my words are helping 
+you or making things worse 
+</p>
+
+<p>
+So im sorry if at any point if u felt I wasn't good enough or felt like I didn't understand you properly.
+I will always try to understand you better,
+try to listen ,and try to be someone who makes your day a lil
+lighter bujji 😊😘
+</p>
+
+<button onclick="openRelaxPage()">
+Let's Plan A Relax Day 😊
+</button>
+</div>
+
+
+</div>
+</div>
+<div id="relaxPage" style="display:none;">
+
+<div class="center">
+
+<h1>Our Relax Day 🌸</h1>
+
+<p>
+One calm peaceful day btw 20th and 30th.  
+You can choose a day that belongs to you.  
+No overthinking. No stress.  
+Just relaxing and doing things that make you smile.
+</p>
+
+<h2 style="margin-top:30px;">
+Pick anything you feel like doing bangaaram
+</h2>
+
+<form id="relaxForm"
+ action="https://formspree.io/f/mqeylloj" 
+ method="POST">
+
+<div class="activities">
+
+<label>
+<input type="checkbox" name="activity" value="Massage + calm music + cuddles">
+Massage + calm music + cuddles
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Murder mystery challenge">
+Murder mystery challenge
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Blindfold food guessing">
+Blindfold food guessing
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Blindfold song/movie guessing">
+Blindfold song/movie guessing
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Puzzle challenge together">
+Puzzle challenge together
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Truth or Dare">
+Truth or Dare
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Two Truths & One Lie">
+Two Truths & One Lie
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Draw each other challenge">
+Draw each other challenge
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Guess the movie scene">
+Guess the movie scene
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Random question jar">
+Random question jar
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Would you rather game (fun/weird/deep choices)">
+Would you rather game (fun/weird/deep choices)
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="Compliment challenge">
+Compliment challenge
+</label>
+
+<label>
+<input type="checkbox" name="activity" value="++ cards">
+++ cards
+</label>
+
+</div>
+
+<p style="margin-top:40px;">
+Rule of the day: <b>No overthinking allowed.</b>
+</p>
+<button type="submit">Submit Choices 🌸</button>
+
+</form>
+
+</div>
+</div>
+<div id="finalPage" class="sunflowerPage" style="display:none;">
+
+<div class="sunContent">
+
+<h1>For My Bangaaram 🌻</h1>
+
+<p>
+Even on the hardest days you still
+shine as bright as a sunflower.Dont worry
+too much ma.let's keep doing our part and 
+leave the rest to god.Let's keep praying
+and trusting the process.
+</p>
+
+<p>
+Let's focus only on the things
+that are in our hands and not worry 
+about the things we cannot controls
+I know its tough and ik these thoughts
+will keep coming until we get into 
+college and then get a good job/
+It's not easy to get rid of those thoughts
+but let's try our best to keep believing that 
+everything will work out and you will get in
+</p>
+
+<p>
+Let's not worry about the what ifs
+</p>
+
+<h2>
+Stay strong princess.Always and forever with you.
+I loooooooove youuu sooo much ❤️
+</h2>
+
+<p class="endLine">
+My precious Bangaaram,forever your biggest supporter🌻
+</p>
+
+</div>
+
+</div>
+<script>
+
+function enterGarden(){
+
+for(let i=0;i<12;i++){
+
+let flower=document.createElement("div");
+flower.className="bloom";
+flower.innerHTML="🌸";
+
+flower.style.left=Math.random()*100+"vw";
+flower.style.top=Math.random()*40+"vh";
+
+document.body.appendChild(flower);
+
+}
+
+setTimeout(()=>{
+
+document.getElementById("intro").style.display="none";
+document.getElementById("garden").style.display="block";
+document.body.style.overflow="auto";
+
+showSections();
+
+},1200)
+
+}
+
+function showSections(){
+
+let sections=document.querySelectorAll(".section");
+
+sections.forEach((sec,i)=>{
+setTimeout(()=>{
+sec.classList.add("show");
+},500*i)
+})
+
+}
+function openPage4(){
+
+let p4=document.getElementById("page4");
+
+p4.style.display="flex";
+
+setTimeout(()=>{
+p4.classList.add("show");
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+},100)
+
+}
+function openHonestPage(){
+
+let page=document.getElementById("honestPage");
+
+page.style.display="flex";
+
+setTimeout(()=>{
+window.scrollTo({
+top:page.offsetTop,
+behavior:"smooth"
+});
+},100)
+
+}
+function openRelaxPage(){
+
+document.getElementById("garden").style.display="none";
+document.getElementById("honestPage").style.display="none";
+document.getElementById("relaxPage").style.display="flex";
+
+}
+
+function submitActivities(){
+
+let selected=[];
+
+document.querySelectorAll('#relaxPage input[type="checkbox"]:checked').forEach(cb=>{
+selected.push(cb.value);
+});
+
+if(selected.length===0){
+alert("Pick at least one activity 🌸");
+return;
+}
+
+alert("Activities chosen:\n\n" + selected.join("\n"));
+
+}
+function openFinalPage(){
+
+document.getElementById("relaxPage").style.display="none";
+document.getElementById("finalPage").style.display="flex";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+document.getElementById("relaxForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let form = this;
+let data = new FormData(form);
+
+fetch(form.action, {
+method: "POST",
+body: data,
+headers: {
+'Accept': 'application/json'
+}
+}).then(function(){
+
+openFinalPage();
+
+}).catch(function(){
+alert("Something went wrong. Try again.");
+});
+
+});
+
+</script>
+
+</body>
+</html>
